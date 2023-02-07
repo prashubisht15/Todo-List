@@ -47,6 +47,7 @@ const InputBox = () => {
       setAllEntries([...allEntries, entries])
       setField1("");
       setField2("");
+      enqueueSnackbar("Created Successfully!!", { variant: "success" })
     }
   };
   

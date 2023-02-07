@@ -13,8 +13,8 @@ const styletext = {
   transform: "translate(-50%, -50%)",
   border: "2px solid #ff8303",
   borderRadius: "4px",
-  width: "400px",
-  height: "400px",
+  width: "300px",
+  height: "300px",
   background: "black"
 };
 

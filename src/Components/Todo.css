@@ -109,7 +109,8 @@ p {
   font-size: x-large;
   padding: 10px;
   background-color: #242320;
-  color:#f0e3ca
+  color:#f0e3ca;
+  overflow: hidden;
 }
 .textarea2 {
   width: 100%;
