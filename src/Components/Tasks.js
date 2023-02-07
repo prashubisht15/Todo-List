@@ -71,7 +71,7 @@ const Tasks = ({ allEntries, setAllEntries }) => {
         columns={12}
         spacing={4}
       >
-        {allEntries ? (
+        {allEntries && allEntries.length ? (
           allEntries.map((entry, id) => (
             <Grid item xs={12} md={4} sm={4} key={id} className="grid-border">
               <Box className="box-content">
