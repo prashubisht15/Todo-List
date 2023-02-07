@@ -15,6 +15,7 @@ const styletext = {
   borderRadius: "4px",
   width: "400px",
   height: "400px",
+  background: "black"
 };
 
 const Tasks = ({ allEntries, setAllEntries }) => {
@@ -22,6 +23,8 @@ const Tasks = ({ allEntries, setAllEntries }) => {
   const [title, setTitle] = useState("");
   const [about, setAbout] = useState("");
   const [openInfo, setOpenInfo] = useState(false);
+  const val1 = title.substring(0, 20);
+  const val2 = about.substring(0, 20);
   
   const handleOpenInfo = () => setOpenInfo(true);
   const handleCloseInfo = () => setOpenInfo(false);
@@ -71,8 +74,8 @@ const Tasks = ({ allEntries, setAllEntries }) => {
           <Grid item xs={12} md={4} sm={4} key={index} className="grid-border">
             <Box className="box-content">
               <Box className="list-box">
-                <h3>{entry.title}</h3>
-                <p>{entry.about}</p>
+                <h3>{entry.title.length>20 ? entry.title.substring(0, 20) + "..." : entry.title}</h3>
+                <p>{entry.about.length>20 ? entry.about.substring(0, 20) + "..." : entry.about}</p>
                 <CloseIcon
                   id="close"
                   className="btn-css"

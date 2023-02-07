@@ -66,13 +66,13 @@ const InputBox = () => {
           onChange={(e) => {
             setField1(e.target.value);
           }}
-          value={field1.length > 25 ? trimmedField1 + "..." : field1}
+          value={field1.length > 15 ? trimmedField1 + "..." : field1}
         />
         <input
           onClick={handleOpen}
           placeholder=" About..."
           className="input-box second"
-          value={field2.length > 25 ? trimmedField2 + "..." : field2}
+          value={field2.length > 15 ? trimmedField2 + "..." : field2}
         />
         <Modal open={open} onClose={handleClose}>
           <Box sx={styletext}>

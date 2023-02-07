@@ -60,7 +60,8 @@ p {
   color: #f0e3ca;
 }
 .all-tasks {
-  margin-top: 33px;
+  margin: 33px 10px;
+  
   /* display: flex;
     justify-content: center;
     align-items: center; */
@@ -97,7 +98,7 @@ p {
   height: 100%;
   resize: none;
   font-size: x-large;
-  padding: 8px;
+  padding: 10px;
   background-color: #242320;
   color:#f0e3ca
 }
@@ -106,7 +107,7 @@ p {
   height: 15%;
   resize: none;
   font-size: x-large;
-  padding: 8px;
+  padding: 10px;
   background-color: #242320;
   color:#f0e3ca
 }
@@ -115,7 +116,7 @@ p {
   height: 84%;
   resize: none;
   font-size: x-large;
-  padding: 8px;
+  padding: 10px;
   background-color: #242320;
   color:#f0e3ca
 }
