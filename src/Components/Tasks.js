@@ -29,7 +29,6 @@ const Tasks = ({ allEntries, setAllEntries }) => {
   };
 
   const handleOpen = (i) => {
-    console.log("sdfgdsfg");
     setOpen(true);
     setIndex(i);
   };
@@ -45,7 +44,6 @@ const Tasks = ({ allEntries, setAllEntries }) => {
   };
 
   const handleUpdate = () => {
-    setIndex(-1);
     handleClose();
   };
 
@@ -59,7 +57,7 @@ const Tasks = ({ allEntries, setAllEntries }) => {
     arr[index].about = e.target.value;
     setAllEntries(arr);
   };
-  console.log(allEntries, "UOO");
+
   return (
     <Box className="all-tasks">
       <Grid
@@ -112,7 +110,7 @@ const Tasks = ({ allEntries, setAllEntries }) => {
           <NoTask />
         )}
 
-        {index !== -1 && (
+        {allEntries.length && allEntries.length ? (
           <Modal open={openInfo} onClose={handleCloseInfo}>
             <Box sx={styletext}>
               <textarea
@@ -125,9 +123,10 @@ const Tasks = ({ allEntries, setAllEntries }) => {
               ></textarea>
             </Box>
           </Modal>
+        ) : (
+          <></>
         )}
-
-        {index !== -1 && (
+        {allEntries.length && allEntries.length ? (
           <Modal open={open} onClose={handleClose}>
             <Box sx={styletext}>
               <textarea
@@ -145,6 +144,8 @@ const Tasks = ({ allEntries, setAllEntries }) => {
               </button>
             </Box>
           </Modal>
+        ) : (
+          <></>
         )}
       </Grid>
     </Box>
