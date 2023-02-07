@@ -23,8 +23,6 @@ const Tasks = ({ allEntries, setAllEntries }) => {
   const [title, setTitle] = useState("");
   const [about, setAbout] = useState("");
   const [openInfo, setOpenInfo] = useState(false);
-  const val1 = title.substring(0, 20);
-  const val2 = about.substring(0, 20);
   
   const handleOpenInfo = () => setOpenInfo(true);
   const handleCloseInfo = () => setOpenInfo(false);
