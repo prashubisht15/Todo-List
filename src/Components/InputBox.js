@@ -1,8 +1,11 @@
 import { Box } from "@mui/material";
-import React, { useState } from "react";
-import "./Todo.css";
+import React, { useEffect, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import { Modal } from "@mui/material";
+import {useSnackbar} from 'notistack'
+import Gyizer from "./Features/Gyizer"
+import Tasks from "./Tasks";
+import "./Todo.css";
 
 const styletext = {
   position: "absolute",
@@ -15,7 +18,13 @@ const styletext = {
   height: "300px",
 };
 
+const getLocalData = ()=>{
+  return (JSON.parse(localStorage.getItem('entries')) || [])
+}
+
 const InputBox = () => {
+  const {enqueueSnackbar} = useSnackbar()
+  const [allEntries, setAllEntries] = useState(getLocalData())
   const [field1, setField1] = useState("");
   const [field2, setField2] = useState("");
   const trimmedField1 = field1.substring(0, 20);
@@ -23,18 +32,33 @@ const InputBox = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  
   const handleSubmit = () => {
-    console.log("Submit")
-    localStorage.setItem({
-      title: field1,
-      about: field2,
-    });
-    setField1("");
-    setField2("");
+    if(field1==='' || field2==='') 
+    {
+      enqueueSnackbar("Enter both field", { variant: "error" })
+    }
+    else{
+      const entries = {
+        title: field1,
+        about: field2,
+      }
+      setAllEntries([...allEntries, entries])
+      setField1("");
+      setField2("");
+    }
   };
+  
+  useEffect(()=>{
+    localStorage.setItem('entries', JSON.stringify(allEntries))
+  },[allEntries])
+
   return (
+    <>
+    <Gyizer className="logo"/>
     <Box className="top-container">
-      <Box>
+      <Box >
         <input
           type="text"
           placeholder="  Title..."
@@ -46,7 +70,6 @@ const InputBox = () => {
         />
         <input
           onClick={handleOpen}
-          //   sx={style}
           placeholder=" About..."
           className="input-box second"
           value={field2.length > 25 ? trimmedField2 + "..." : field2}
@@ -66,7 +89,8 @@ const InputBox = () => {
         <AddIcon id="plus-icon" />
       </Box>
     </Box>
+    <Tasks allEntries={allEntries} setAllEntries={setAllEntries}/>
+    </>
   );
 };
-
 export default InputBox;

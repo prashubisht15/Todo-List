@@ -1,11 +1,14 @@
 import React from "react";
 import InputBox from "./Components/InputBox";
-import Tasks from "./Components/Tasks";
+import { SnackbarProvider} from 'notistack'
+
 function App() {
+  
   return (
     <div className="App">
-      <InputBox/>
-      <Tasks/>
+      <SnackbarProvider>
+        <InputBox/>
+      </SnackbarProvider>
     </div>
   );
 }

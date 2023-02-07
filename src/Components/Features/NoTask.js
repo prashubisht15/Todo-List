@@ -1,14 +1,14 @@
 import React from 'react'
-
+import './feature.css'
 const NoTask = () => {
   return (
     
     <div className="no-task">
       <hr/>
-      No tasks
+        No tasks
       <hr/>
     </div>
   )
 }
 
-export default No-task
+export default NoTask
